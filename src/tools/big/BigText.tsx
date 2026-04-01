@@ -13,10 +13,6 @@ function BigText({ onBack }: BigTextProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
 
-  const presets = PRESETS;
-
-  const themes = THEMES;
-
   useEffect(() => {
     localStorage.setItem('bigText', text);
   }, [text]);
