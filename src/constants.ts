@@ -1,5 +1,4 @@
 export const findBestFontSize = (
-  text: string, 
   containerWidth: number, 
   containerHeight: number,
   measureText: (size: number) => { width: number; height: number }

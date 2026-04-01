@@ -7,21 +7,21 @@ describe('findBestFontSize', () => {
   it('finds the correct font size for a simple case', () => {
     // container is 100x100, text at 50px is 50x50, at 101px is 101x101
     const measureText = (size: number) => ({ width: size, height: size });
-    const result = findBestFontSize('HELLO', 100, 100, measureText);
+    const result = findBestFontSize(100, 100, measureText);
     expect(result).toBe(100);
   });
 
   it('respects width limits', () => {
     const measureText = (size: number) => ({ width: size * 2, height: size });
     // 50 * 2 = 100 width, 50 height. Should fit in 100x100
-    const result = findBestFontSize('HELLO', 100, 100, measureText);
+    const result = findBestFontSize(100, 100, measureText);
     expect(result).toBe(50);
   });
 
   it('respects height limits', () => {
     const measureText = (size: number) => ({ width: size, height: size * 2 });
     // 50 width, 50 * 2 = 100 height. Should fit in 100x100
-    const result = findBestFontSize('HELLO', 100, 100, measureText);
+    const result = findBestFontSize(100, 100, measureText);
     expect(result).toBe(50);
   });
 
@@ -34,7 +34,6 @@ describe('findBestFontSize', () => {
     const measureText = (size: number) => ({ width: size, height: size });
     
     const result = findBestFontSize(
-      'TEST', 
       containerWidth - padding, 
       containerHeight - padding, 
       measureText

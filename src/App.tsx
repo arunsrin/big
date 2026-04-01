@@ -35,7 +35,6 @@ function App() {
     const availableHeight = Math.max(0, container.clientHeight - padding);
 
     const bestSize = findBestFontSize(
-      text,
       availableWidth,
       availableHeight,
       (size) => {
@@ -48,7 +47,7 @@ function App() {
     );
     
     setFontSize(bestSize);
-  }, [isEditing, text]);
+  }, [isEditing]);
 
   useEffect(() => {
     if (!isEditing) {
